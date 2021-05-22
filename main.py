@@ -38,33 +38,11 @@ df = pd.DataFrame(E[:, 1])
 df.to_csv(r'D:\SHITTT.txt', header=None, index=None, sep=' ', mode='a')
 
 Intensity = (E[:, 1]) ** 2
-
-plt.scatter(a[:, 0], a[:, 1])
-plt.title('amplitudes')
-plt.xlabel('frequency')
-plt.show()
-
-plt.scatter(a[:, 0], a[:, 2])
-plt.title('phase')
-plt.xlabel('frequency')
-plt.show()
-
-plt.plot(E[:, 0], Intensity)
-plt.title('intensity')
-plt.xlabel('time [ns]')
-plt.show()
-
-
 # averaging
 def moving_average(x, w):
     return np.convolve(x, np.ones(w), 'valid')
 
-
 Averaged = moving_average(Intensity, period)
-plt.plot(np.linspace(0, 120, len(Averaged)), Averaged)
-plt.title('resonator half-time averaged inensity')
-plt.xlabel('time [ns]')
-plt.show()
 
 fig, axs = plt.subplots(2, 2)
 axs[0, 0].scatter(a[:, 0], a[:, 1])
